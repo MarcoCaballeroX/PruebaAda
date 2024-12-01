@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+    <head th:replace="plantillas/principal :: head"></head>
+
+    <body>
+
+        <header th:replace="plantillas/principal :: header"></header>
+
+        <br/>
+
+        <section id="productos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <di class="card">
+                            <div class="card-header">
+                                <h4>Productos</h4>
+                            </div>
+
+                            <div th:if="${listaProductos != null and !listaProductos.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Stock</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>    
+                                    <tbody>
+                                    <tr th:each="producto : ${listaProductos}">
+                                        <td th:text="${producto.nombre}">Mostrar Nombre</td>
+                                        <td th:text="${producto.descripcion}">Mostrar Descripcion</td>
+                                        <td th:text="${producto.precio}">Mostrar Precio</td>
+                                        <td th:text="${producto.stock}">Mostrar Stock</td>
+                                        <td> 
+                                            <a th:href="@{/renderEditar/} + ${producto.id}" class="btn btn-primary btn-block">
+                                                <i class="fas fa-pen"></i>&nbsp;Editar
+                                            </a> 
+                                        </td>
+                                        <td> 
+                                            <a th:href="@{/accionEliminar(id=${producto.id})}"  class="btn btn-danger btn-block">
+                                                <i class="fas fa-trash"></i>&nbsp;Eliminar
+                                            </a> 
+                                        </td>
+                                    </tr>
+                                    </tbody>    
+                                </table>
+                            </div>
+
+                            <div class="text-center p-2" th:if="${listaProductos == null or listaProductos.empty}">
+                                No existe registros para visualizar !!
+                            </div>
+
+
+                        </di>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <footer th:replace="plantillas/principal :: footer"></footer>
+
+    </body>
+</html>
+

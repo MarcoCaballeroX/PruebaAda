@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+    <head th:replace="plantillas/principal :: head"></head>
+
+    <body>
+
+        <header th:replace="plantillas/principal :: header"></header>
+
+        <br/>
+
+        <section id="formProductos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <di class="card">
+                            <div class="card-header">
+                                <h4>Formulario Producto</h4>
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+
+                                <form th:action="@{/accionPersistirProducto}" method="POST" th:object="${producto}">
+
+                                    
+                                    <div class="form-group">
+                                    <input type="hidden" name="id" th:field="*{id}"/>
+
+                                    <label for="nombre">Nombre:</label>
+                                    <br/>
+                                    <input type="text" name="nombre" th:field="*{nombre}" class="w-100"/>
+                                    <br/>
+                                    <label for="descripcion">Descripcion:</label>
+                                    <br/>
+                                    <input type="text" name="descripcion" th:field="*{descripcion}" class="w-100"/>
+                                    <br/>
+                                    <label for="precio">Precio:</label>
+                                    <br/>
+                                    <input type="number" name="precio" th:field="*{precio}" class="w-100"/>
+                                    <br/>
+                                    <label for="stock">Stock:</label>
+                                    <br/>
+                                    <input type="number" name="stock" th:field="*{stock}" class="w-100"/>
+                                    <br/>
+                                    <br/>
+                                    <button class="btn btn-primary btn-block" type="submit" name="guardar">
+                                        <i class="fas fa-save"></i>&nbsp;Guardar
+                                    </button>
+
+                                    </div>
+                                    
+                                </form>    
+
+
+
+                            </div>
+
+                        </di>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <footer th:replace="plantillas/principal :: footer"></footer>
+
+    </body>
+</html>
+

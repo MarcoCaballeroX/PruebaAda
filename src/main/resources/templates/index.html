@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+    <head th:replace="plantillas/principal :: head"></head>
+    <body>
+
+        <header th:replace="plantillas/principal :: header"></header>
+
+        <br/>
+
+        <section id="productos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <di class="card">
+                            <div class="card-header">
+                                <h4>Bienvenidos</h4>
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <div th:if="${mensaje}" class="bg-primary text-white mb-3 mt-3">
+                                    <p th:text="${mensaje}"></p>
+                                </div>
+                                
+                                <div class="card text-center bg-success mb-3 mt-3">
+                                    <di class="card-body">
+                                        <h3>
+                                            <a th:href="@{/renderFormularioProducto}" class="text-white">
+                                                <i class="fas fa-plus"></i>&nbsp;Nuevo Producto
+                                            </a>
+                                        </h3>
+                                    </di>
+                                </div>
+
+                                <div class="card text-center bg-success mb-3">
+                                    <di class="card-body">
+                                        <h3>
+                                            <a th:href="@{/renderVisualizarProductos}" class="text-white">
+                                                <i class="fas fa-table"></i>&nbsp;Ver Productos
+                                            </a>
+                                        </h3>
+                                    </di>
+                                </div>
+
+                            </div>
+
+                        </di>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="plantillas/principal :: footer"></footer>
+
+    </body>
+</html>
